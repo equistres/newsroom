@@ -12,7 +12,7 @@ const News = (item) => {
                     <div className="card-body">
                         <h6 className="card-title block-with-text">{item.item.title}</h6>
                         <p className="card-text block-with-description">{item.item.description}</p>
-                        <a  href={item.item.url}target="_blank" rel="noopener noreferrer" className="btn btn-primary">Seguir leyendo</a>
+                        <a  href={item.item.url}target="_blank" rel="noopener noreferrer" className="btn btn-secondary">Seguir leyendo</a>
                     </div>
                 </div>
             </div>
