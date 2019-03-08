@@ -4,7 +4,7 @@ import './News.css';
 const News = (item) => {
         return (
             <div className="column"> 
-                <div className="card mr-2 mb-4" style={{width: '21rem', height:'600px'}}>
+                <div className="card mr-2 ml-2 mb-4" style={{width: '21rem', height:'600px'}}>
                     <div className="container">                 
                         <img src={item.item.urlToImage} className="card-img-top" alt="..." style={{width: '286px', height:'150px'}}/>
                         <span className="badge badge-primary bottom-right">Via {item.item.source.name}</span> 

@@ -72,15 +72,15 @@ class GetNews extends Component {
         let content;
         if (fetched) {
             if (this.state.maxCount === 20) {
-                nextButton = <button type="button" className="btn btn-dark">Next</button>;
+                nextButton = <div className="my-auto"><button type="button" className="btn btn-dark">Next</button></div>;
             } else {
-                nextButton = <button type="button" className="btn btn-dark" onClick={this.handleClickNext}>Next</button>;
+                nextButton = <div className="my-auto"><button type="button" className="btn btn-dark align-items-center" onClick={this.handleClickNext}>Next</button></div>;
             }
 
             if (this.state.initialCount === 0) {
-                PrevButton = <button type="button" className="btn btn-dark">Prev</button>;
+                PrevButton = <div className="my-auto"><button type="button" className="btn btn-dark">Prev</button></div>;
             } else {
-                PrevButton = <button type="button" className="btn btn-dark" onClick={this.handleClickPrev}>Prev</button>;
+                PrevButton = <div className="my-auto"><button type="button" className="btn btn-dark" onClick={this.handleClickPrev}>Prev</button></div>;
             }
 
             items = this.state.list.articles.slice(this.state.initialCount, this.state.maxCount);
@@ -98,7 +98,8 @@ class GetNews extends Component {
                 {PrevButton}
                 {content}
                 {nextButton}
-                <img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="64px" width="64px" style={{cursor: 'pointer'}}/>
+                <div className="my-auto"><img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="50px" width="50px" style={{cursor: 'pointer'}}/></div>
+                
             </div>
         )
     }
