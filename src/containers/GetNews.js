@@ -27,7 +27,6 @@ class GetNews extends Component {
     }
 
     handleClickNext = () => {
-        debugger
         let inicio = this.state.initialCount + this.state.Increment;
         let fin = this.state.maxCount + this.state.Increment;
         if (inicio <= 20 && fin <= 20) {
@@ -47,6 +46,20 @@ class GetNews extends Component {
                 maxCount: fin
             });
         };
+    }
+
+    handleSort =() => {
+        //agarro el objeto original
+        let obj = this.state.list;
+        //esta es una funcion que agarra el array y lo da vuelta
+        let fnReverse = a =>[...a].map(a.pop,a)
+        //reemplazo del objeto original la nueva lista dada vuelta
+        obj.articles = fnReverse(this.state.list.articles)
+        //actualizo el estado y se rerenderea
+        this.setState({
+            list: obj
+        });
+
     }
 
 
@@ -85,6 +98,7 @@ class GetNews extends Component {
                 {PrevButton}
                 {content}
                 {nextButton}
+                <img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="64px" width="64px" style={{cursor: 'pointer'}}/>
             </div>
         )
     }
