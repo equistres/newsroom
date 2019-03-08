@@ -1,0 +1,48 @@
+
+
+
+/* mixin for multiline */
+.block-with-text {
+    overflow: hidden;
+    position: relative;
+    max-height: 3.6em;
+    padding-right: 1em;
+  }
+  .block-with-text:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-text:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+
+
+  .block-with-description {
+    overflow: hidden;
+    position: relative;
+    max-height: 4.6em;
+    padding-right: 1em;
+  }
+  .block-with-description:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-description:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
