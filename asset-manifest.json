@@ -1,13 +1,13 @@
 {
   "main.css": "/newsroom/static/css/main.d63120dd.chunk.css",
-  "main.js": "/newsroom/static/js/main.14a01867.chunk.js",
-  "main.js.map": "/newsroom/static/js/main.14a01867.chunk.js.map",
+  "main.js": "/newsroom/static/js/main.9268983b.chunk.js",
+  "main.js.map": "/newsroom/static/js/main.9268983b.chunk.js.map",
   "runtime~main.js": "/newsroom/static/js/runtime~main.acc2f6d5.js",
   "runtime~main.js.map": "/newsroom/static/js/runtime~main.acc2f6d5.js.map",
   "static/js/2.10117d87.chunk.js": "/newsroom/static/js/2.10117d87.chunk.js",
   "static/js/2.10117d87.chunk.js.map": "/newsroom/static/js/2.10117d87.chunk.js.map",
   "index.html": "/newsroom/index.html",
-  "precache-manifest.6a799a87ba79195be17330b5c1d1a8f3.js": "/newsroom/precache-manifest.6a799a87ba79195be17330b5c1d1a8f3.js",
+  "precache-manifest.f1b136a6f64bb298fd99985f914da14d.js": "/newsroom/precache-manifest.f1b136a6f64bb298fd99985f914da14d.js",
   "service-worker.js": "/newsroom/service-worker.js",
   "static/css/main.d63120dd.chunk.css.map": "/newsroom/static/css/main.d63120dd.chunk.css.map"
 }
