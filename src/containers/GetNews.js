@@ -68,7 +68,8 @@ class GetNews extends Component {
         let items = [];
         let nextButton;
         let PrevButton;
-        const { fetched, loading } = this.state;
+        let SortButton;
+        const { fetched } = this.state;
         let content;
         if (fetched) {
             if (this.state.maxCount === 20) {
@@ -83,12 +84,17 @@ class GetNews extends Component {
                 PrevButton = <div className="my-auto"><button type="button" className="btn btn-dark" onClick={this.handleClickPrev}>Prev</button></div>;
             }
 
-            items = this.state.list.articles.slice(this.state.initialCount, this.state.maxCount);
-            content = items.map((item) => {
-                return (<News item={item} key={item.publishedAt} />)
-            })
+            SortButton = <div className="my-auto"><img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="50px" width="50px" style={{cursor: 'pointer'}}/></div>;
 
-        } else if (loading && !fetched) {
+            items = this.state.list.articles.slice(this.state.initialCount, this.state.maxCount);
+            //al no tener una key o id en el api, le paso como key el index, el numero de orden que tiene en el array
+            content = items.map(function(item, index) {
+                return(
+                    <News item={item} key={index} />
+                )
+            });
+
+        } else if (!fetched) {
             content = <p> Loading...</p>;
         } else {
             content = <div />;
@@ -98,8 +104,7 @@ class GetNews extends Component {
                 {PrevButton}
                 {content}
                 {nextButton}
-                <div className="my-auto"><img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="50px" width="50px" style={{cursor: 'pointer'}}/></div>
-                
+                {SortButton}
             </div>
         )
     }
