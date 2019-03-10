@@ -75,10 +75,10 @@ class GetNews extends Component {
     }
 
     handleReadMore = (event) => {
-        let id = event.target.getAttribute("itemID") - 1;
-        
+        let id = event.target.getAttribute("itemID");
+        var item = this.state.list.articles.find(o => o.id == id);
         this.setState({
-            itemSelected: this.state.list.articles[id],
+            itemSelected: item,
             showModal: true
         })
     }
