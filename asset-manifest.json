@@ -1,13 +1,13 @@
 {
-  "main.css": "/newsroom/static/css/main.c1cc26aa.chunk.css",
-  "main.js": "/newsroom/static/js/main.b3033c98.chunk.js",
-  "main.js.map": "/newsroom/static/js/main.b3033c98.chunk.js.map",
+  "main.css": "/newsroom/static/css/main.c6d514f2.chunk.css",
+  "main.js": "/newsroom/static/js/main.f0749f3d.chunk.js",
+  "main.js.map": "/newsroom/static/js/main.f0749f3d.chunk.js.map",
   "runtime~main.js": "/newsroom/static/js/runtime~main.acc2f6d5.js",
   "runtime~main.js.map": "/newsroom/static/js/runtime~main.acc2f6d5.js.map",
   "static/js/2.59def82b.chunk.js": "/newsroom/static/js/2.59def82b.chunk.js",
   "static/js/2.59def82b.chunk.js.map": "/newsroom/static/js/2.59def82b.chunk.js.map",
   "index.html": "/newsroom/index.html",
-  "precache-manifest.42cb1f501baf944bf9809729d7c7f6f3.js": "/newsroom/precache-manifest.42cb1f501baf944bf9809729d7c7f6f3.js",
+  "precache-manifest.d671d6de98c5bf82eabd66f79dde0d22.js": "/newsroom/precache-manifest.d671d6de98c5bf82eabd66f79dde0d22.js",
   "service-worker.js": "/newsroom/service-worker.js",
-  "static/css/main.c1cc26aa.chunk.css.map": "/newsroom/static/css/main.c1cc26aa.chunk.css.map"
+  "static/css/main.c6d514f2.chunk.css.map": "/newsroom/static/css/main.c6d514f2.chunk.css.map"
 }
