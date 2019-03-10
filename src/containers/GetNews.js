@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import News from '../components/News';
+import ModalContainer from './Modal';
+import Modal from '../components/Modal';
+
 
 
 
@@ -11,19 +14,28 @@ class GetNews extends Component {
         loading: false,
         initialCount: 0,
         maxCount: 5,
-        Increment: 5
+        Increment: 5,
+        showModal: false,
+        itemSelected: null
     }
+
 
     componentDidMount() {
         fetch(this.props.api)
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    list: data,
+                    //LLAMO UNA FUNCION QUE LO QUE HACE ES ASIGNARLE UN ID A CADA ELEMENTO DEL ARRAY DE NOTICIAS
+                    list: data = this.fnNumerarArray(data),
                     loading: true,
                     fetched: true
                 });
             });
+    }
+
+    fnNumerarArray = (data) => {
+        data.articles.forEach((o, i) => o.id = i + 1)
+        return data
     }
 
     handleClickNext = () => {
@@ -48,7 +60,7 @@ class GetNews extends Component {
         };
     }
 
-    handleSort =() => {
+    handleSort = () => {
         //agarro el objeto original
         let obj = this.state.list;
         //esta es una funcion que agarra el array y lo da vuelta
@@ -61,6 +73,23 @@ class GetNews extends Component {
         });
 
     }
+
+    handleReadMore = (event) => {
+        let id = event.target.getAttribute("itemID") - 1;
+        
+        this.setState({
+            itemSelected: this.state.list.articles[id],
+            showModal: true
+        })
+    }
+
+    handleCloseModal = () => {
+        this.setState({
+            itemSelected: null,
+            showModal: false
+        })
+    }
+
 
 
     render() {
@@ -85,14 +114,13 @@ class GetNews extends Component {
             }
 
             SortButton = <div className="my-auto"><img onClick={this.handleSort} src="https://image.flaticon.com/icons/png/128/1528/1528895.png" alt="Sort" height="50px" width="50px" style={{cursor: 'pointer'}}/></div>;
-
             items = this.state.list.articles.slice(this.state.initialCount, this.state.maxCount);
             //al no tener una key o id en el api, le paso como key el index, el numero de orden que tiene en el array
             content = items.map(function(item, index) {
                 return(
-                    <News item={item} key={index} />
+                    <News item={item} key={item.id} handleReadMore={this.handleReadMore}/>
                 )
-            });
+            }, this);
 
         } else if (!fetched) {
             content = <p> Loading...</p>;
@@ -105,6 +133,12 @@ class GetNews extends Component {
                 {content}
                 {nextButton}
                 {SortButton}
+                {
+                    this.state.showModal &&
+                    <ModalContainer>
+                    <Modal item={this.state.itemSelected} handleCloseModal={this.handleCloseModal}/>
+                    </ModalContainer>
+                }
             </div>
         )
     }
