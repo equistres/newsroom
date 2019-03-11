@@ -2,6 +2,7 @@ import React from 'react';
 import './Modal.css';
 
 const Modal = (props) => {
+    console.log(props)
     return (
         <div className="wrapper">
             <div className="Modal" onClick={props.handleCloseModal}>
@@ -10,7 +11,7 @@ const Modal = (props) => {
                 <h1>{props.item.title}</h1>
                 <p>{props.item.content}</p>
                 <div>
-                    <a href={props.item.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark text-white float-right">Read full article</a>
+                    <a href={props.item.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark text-white float-right">Read full article in {props.item.source.name}</a>
                 </div>
             </div>
         </div>
