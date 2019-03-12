@@ -136,7 +136,7 @@ class GetNews extends Component {
                 {
                     this.state.showModal &&
                     <ModalContainer>
-                    <Modal item={this.state.itemSelected} handleCloseModal={this.handleCloseModal}/>
+                        <Modal item={this.state.itemSelected} handleCloseModal={this.handleCloseModal}/>
                     </ModalContainer>
                 }
             </div>

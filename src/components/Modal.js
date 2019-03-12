@@ -2,7 +2,7 @@ import React from 'react';
 import './Modal.css';
 
 const Modal = (props) => {
-    console.log(props)
+    debugger
     return (
         <div className="wrapper">
             <div className="Modal" onClick={props.handleCloseModal}>
