@@ -26,6 +26,15 @@
 .btn{
   height: 45px;
 }
+/* 
+div.row div.column:nth-child(5n){
+  display: inline;
+} */
+
+div.row .column:nth-child(6n) {
+  float: left;
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -35,3 +44,4 @@
     transform: rotate(360deg);
   }
 }
+
