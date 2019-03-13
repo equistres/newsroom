@@ -3,8 +3,6 @@ import './App.css';
 import GetNews from './containers/GetNews';
 
 const ARGNEWS = "https://newsapi.org/v2/top-headlines?country=ar&apiKey=91a3bc0b07184b7a8bf352ff162016cd";
-const USNEWS = "https://newsapi.org/v2/top-headlines?country=us&apiKey=91a3bc0b07184b7a8bf352ff162016cd";
-const BRNEWS = "https://newsapi.org/v2/top-headlines?country=br&apiKey=91a3bc0b07184b7a8bf352ff162016cd";
 
 class App extends Component {
   render() {

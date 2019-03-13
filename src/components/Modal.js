@@ -2,12 +2,11 @@ import React from 'react';
 import './Modal.css';
 
 const Modal = (props) => {
-    debugger
     return (
         <div className="wrapper">
             <div className="Modal" onClick={props.handleCloseModal}>
                 <span className="Modal-close"/>
-                <img src={props.item.urlToImage} width="730"/>
+                <img alt="" src={props.item.urlToImage} width="730"/>
                 <h1>{props.item.title}</h1>
                 <p>{props.item.content}</p>
                 <div>
