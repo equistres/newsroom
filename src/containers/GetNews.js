@@ -11,6 +11,7 @@ import Search from '../components/Search';
 class GetNews extends Component {
 
     state = {
+        Listaoriginal:[],
         handledList:[],
         fetched: false,
         loading: false,
@@ -28,6 +29,7 @@ class GetNews extends Component {
             .then(data => {
                 this.setState({
                     //LLAMO UNA FUNCION QUE LO QUE HACE ES ASIGNARLE UN ID A CADA ELEMENTO DEL ARRAY DE NOTICIAS
+                    listaOriginal: data = this.fnNumerarArray(data),
                     handledList: data = this.fnNumerarArray(data),
                     loading: true,
                     fetched: true
@@ -37,7 +39,6 @@ class GetNews extends Component {
 
     fnNumerarArray = (data) => {
         data.articles.forEach((o, i) => o.id = i + 1)
-        localStorage.setItem("listaOriginal", JSON.stringify(data));
         return data
     }
 
@@ -95,15 +96,16 @@ class GetNews extends Component {
 
     handleSearch = (event) => {
         let q = event.target.value.toLowerCase();
-        const newList = this.state.handledList;
-        
+        let newList = this.state.handledList.articles;
+
         if(q.length>=3){
-        //     //filtro todos los resultados que encontro y se guarda en una variable
-            let filtrados = newList.articles.filter((item) => {
+            //filtro todos los resultados que encontro y se guarda en una variable
+            let filtrados = newList.filter((item) => {
                 return item.title.toLowerCase().includes(q);
             });
 
             if(filtrados.length>0){
+                newList = [];
                 newList.articles = filtrados;
                 this.setState({
                     handledList: newList,
@@ -114,14 +116,12 @@ class GetNews extends Component {
 
         }else if(q.length<3){
             this.setState({
-                handledList: JSON.parse(localStorage.listaOriginal),
+                handledList: this.state.listaOriginal,
                 initialCount: 0,
                 maxCount: 5
             })
         }
-    } 
-
-
+    }
 
     render() {
         let items = [];
@@ -160,8 +160,7 @@ class GetNews extends Component {
         return (
             <div>
                 <Search handleSearch={this.handleSearch}/>
-                <div className="row justify-content-center mt-4">
-                    
+                <div className="row justify-content-center mt-4">                    
                     {PrevButton}
                     {content}
                     {nextButton}
